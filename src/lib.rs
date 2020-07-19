@@ -74,11 +74,11 @@
 //!    lat: f32,
 //!    long: f32,
 //!    alt: f32,
-//!    generation: u64,
+//!    generation: i64,
 //!}
 //!
 //!impl AggregateState for LocationData {
-//!    fn generation(&self) -> u64 {
+//!    fn generation(&self) -> i64 {
 //!        self.generation
 //!    }
 //!}
@@ -178,7 +178,7 @@ pub trait Event: Serialize {
 /// an event to produce a new state, that new state has a generation 1 higher than the
 /// previous.
 pub trait AggregateState {
-    fn generation(&self) -> u64;
+    fn generation(&self) -> i64;
 }
 
 /// An aggregate is where the vast majority of business logic for an event sourcing system
